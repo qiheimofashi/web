@@ -48,7 +48,7 @@
 > git checkout new #切换分支
 > git branch -d new #删除分支
 > git merge [分支名] #合并分支
-```
+``` 
 
 8. vscode中集成git使用
 
