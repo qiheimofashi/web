@@ -1,14 +1,44 @@
 # git 基本使用
 
-1.创建git数据创库
+1. 创建git数据创库
 
-````powershell
+```powershell
 > git init
-````
+```
 
-2.查看当前创库的状态
+2. 查看当前创库的状态
 
-````powershell
+```powershell
 > git status
-````
-> 1.未被管理的状态 U
+```
+> 1. 未被管理的状态 U
+> 2. 新增加状态,表示已经加入本地暂存区   A
+> 3. 已经被管理,但在工作区被修改的文件   M
+> 4. 已经被形成版本状态  C
+
+3. 添加文件命令
+
+```powershell
+> git add .
+```
+
+4. 提交文件到创库
+
+```powershell
+> git commit -m "一句话(提交数据的原因)"
+```
+
+5. 删除文件
+
+```powershell
+> git rm 文件名
+```
+
+6. 回退版本
+
+```powershell
+>git reset --herd 版本号
+```
+
+
+
