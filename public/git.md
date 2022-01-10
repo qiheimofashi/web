@@ -50,7 +50,7 @@
 > git merge [分支名] #合并分支
 ```
 
-8. cscode中集成git使用
+8. vscode中集成git使用
 
 在cscode中已经集成基本的git图形操作功能.单还有功能更加强大的插件可以使用!
 gitlens是非常流行的git图形增强操作插件
