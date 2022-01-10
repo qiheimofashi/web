@@ -37,8 +37,15 @@
 6. 回退版本
 
 ```powershell
->git reset --herd 版本号
+> git reset --hard 版本号
 ```
 
+7. 分支管理
 
-
+```powershell
+> git branch #查看分支
+> git branch new #创建新分支,名称为new
+> git checkout new #切换分支
+> git branch -d new #删除分支
+> git merge [分支名] #合并分支
+```
