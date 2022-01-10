@@ -49,3 +49,9 @@
 > git branch -d new #删除分支
 > git merge [分支名] #合并分支
 ```
+
+8. cscode中集成git使用
+
+在cscode中已经集成基本的git图形操作功能.单还有功能更加强大的插件可以使用!
+gitlens是非常流行的git图形增强操作插件
+我们可以在吃阿金操作图形添加该插件
