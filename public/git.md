@@ -74,6 +74,6 @@ git remote add origin https://gitee.com/liangjiapengweb/todos.git
 git remote -v  查看链接状态
 git remote show [仓库地址] 显示某个仓库信息
 # 上传远程仓库
-git push -u origin "路径名"
+git push -u origin "仓库名"
 ...
  
