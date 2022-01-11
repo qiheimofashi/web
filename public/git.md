@@ -48,13 +48,7 @@
 > git checkout new #切换分支
 > git branch -d new #删除分支
 > git merge [分支名] #合并分支
-<<<<<<< HEAD
-``` 
 
-=======
-```
-傻逼赖声燕
->>>>>>> new
 8. vscode中集成git使用
 
 在vscode中已经集成基本的git图形操作功能.单还有功能更加强大的插件可以使用!
