@@ -7,7 +7,7 @@ const express = require("express");
 const app = express();
 
 //使用静态文件服务
-app.use(express.static("public"));
+app.use(express.static("../public"));
 
 //启动服务监听
 app.listen(port, () => {
