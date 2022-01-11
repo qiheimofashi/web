@@ -77,3 +77,40 @@ git remote show [仓库地址] 显示某个仓库信息
 git push -u origin(仓库名) "main(分支名)"
 ...
  
+# es6 
+# Promise对象
+1. Promise对象有两个特点
+> 1. 对象的状态不受外界影响,Promise对象代表一个异步操作,有三种状态;
+> pending:初始状态,不是成功或失败;
+> resolve:意味着操作成功
+> rejected:操作失败
+> 2. 一旦状态改变，就不会再变，任何时候都可以得到这个结果。
+> new Promise((resolve.rejected)=>{});
+
+
+
+# 基本转换形式
+
+```powershell
+function 函数名(参数列表) {
+  return new Promise((resolve, reject) => {
+    // 真正的函数执行
+    if (执行成功) resolve(结果);
+    else reject(错误);
+  })
+}
+```
+# .then
+then方法是定义在原型对象Promise。它的作用是为Promise实例添加状态改变的回调函数。then方法的第一个参数是resolve状态的回调函数，第二个参数(可选)是rejected的回调函数.
+```powerchel;
+promise.then(resolve) 返回成功的结果
+promise.the(null,rejected) 返回失败的结果
+```
+# .catch
+.catch()和promise.the(null,rejected)是一样的,用于指定发生错误是的回调函数.
+Promise.then((resolve)=>{
+    console.log(resolve);返回成功信息
+}).catch((rejected)=>{
+    console.log(rejected)返回错误信息
+});
+如果前方有多个.then,.catch可以返回其中某个的错误信息.
