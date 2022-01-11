@@ -51,7 +51,7 @@
 
 8. 全局设置
 
-```sh
+```powershell
 git config --global user.email "email"
 git config --global user.name "name"
 ```
@@ -64,6 +64,14 @@ gitlens是非常流行的git图形增强操作插件
 
 10. 远程创库
 
- 
-
+...powershell
+# 设置全局设置
+git config --global user.email "17687920152@163.com"
+git config --global user.name "liangjiapengweb"
+# 链接远程仓库
+git remote add origin https://gitee.com/liangjiapengweb/todos.git
+# 远程仓库的操作
+git remote -v  查看链接状态
+git remote show [仓库地址] 显示某个仓库信息
+...
  
