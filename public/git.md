@@ -49,8 +49,16 @@
 > git branch -d new #删除分支
 > git merge [分支名] #合并分支
 
+8. 全局设置
+```sh
+git config --global user.email "email"
+git config --global user.name "name"
+```
+
 8. vscode中集成git使用
 
 在vscode中已经集成基本的git图形操作功能.但还有功能更加强大的插件可以使用!
 gitlens是非常流行的git图形增强操作插件
 我们可以在吃阿金操作图形添加该插件
+
+10. 远程创库
