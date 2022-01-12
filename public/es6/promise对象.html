@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise对象</title>
+    <script>
+        // const timeout = (number, ...args) => {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => resolve(...args), number)
+        //     });
+        // };
+        // timeout(2000, "ok").then((value) => {
+        //     console.log(value);
+        //     return timeout(2000, "hhh");
+        // }).then((value) => {
+        //     console.log(value);
+        //     return timeout(2000, "hello world")
+        // });
+
+        // const promise = new Promise(function (resolve, reject) {
+        //     setTimeout(function () { resolve("ok") }, 1000);
+        // });
+        // promise.then((value) => {
+        //     console.log(value)
+        //     return new promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve("haha")
+        //         }, 2000)
+        //     })
+        // }).then((value) => {
+        //     console.log(value);
+        // });
+        const timeout = (number, ...ansy) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(...ansy);
+                }, number);
+            })
+        }
+        timeout(2000, "hahaha").then((value) => {
+            console.log(value);
+            return timeout(2000, "xixi");
+        }).then((value) => {
+            console.log(value);
+            return timeout(2000, "mmmm");
+        }).then((value) => {
+            console.log(value);
+        })
+    </script>
+</head>
+
+<body>
+    <h1>哈哈哈,我可以了</h1>
+</body>
+
+</html>

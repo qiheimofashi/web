@@ -5,55 +5,117 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todos</title>
+    <title>Document</title>
     <script>
-        // const timeout = (number, ...args) => {
-        //     return new Promise((resolve, reject) => {
-        //         setTimeout(() => resolve(...args), number)
-        //     });
-        // };
-        // timeout(2000, "ok").then((value) => {
-        //     console.log(value);
-        //     return timeout(2000, "hhh");
-        // }).then((value) => {
-        //     console.log(value);
-        //     return timeout(2000, "hello world")
-        // });
+        // let变量的声明
+        // if (true) {
+        //     var a = 1;
+        //     let v = 2;
+        // }
+        // console.log(a);
+        // console.log(v);
 
-        // const promise = new Promise(function (resolve, reject) {
-        //     setTimeout(function () { resolve("ok") }, 1000);
-        // });
-        // promise.then((value) => {
-        //     console.log(value)
-        //     return new promise((resolve, reject) => {
-        //         setTimeout(() => {
-        //             resolve("haha")
-        //         }, 2000)
-        //     })
-        // }).then((value) => {
-        //     console.log(value);
-        // });
-        const timeout = (number, ...ansy) => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve(...ansy);
-                }, number);
-            })
+        // for (let i = 0; i < 5; i++) {
+        //     console.log(i);
+        // }
+        // console.log(i);
+        // console.log(a);
+        // console.log(b);
+        // 不存在变量提升
+        // var a = 1;
+        // let b = 2;
+        // typeof td;
+        // console.log(td);
+        // let tdl
+
+        // 函数的作用域
+        // function f1() {
+        //     let n = 5;
+        //     if (true) {
+        //         let n = 10;
+        //         // console.log(n);
+        //     }
+        //     console.log(n)
+        // }
+        // f1();
+
+
+        // function f() {
+        //     console.log("第一 f ")
+        // }
+        // function f2() {
+        //     //重复声明一次函数f
+        //     if (true) {
+        //         function f() {
+        //             console.log("第二f ")
+        //         }
+        //     }
+        //     f(); //if里的 f()函数 实际上在 头部声明
+        // }
+
+        // f2();
+
+
+        // function f() {
+        //     console.log("第一 f ")
+        // }
+        // function f2() {
+        //     f();
+        // }
+        // f2();
+
+        // do表达式
+        // do表达式能将块级作用域的值返回;
+        // let x = do {
+        //     let a = 1;
+        //     let b = 3;
+        //     a + b + 1;
+        // };
+        // console.log(x);
+
+        //const 命令
+        // const pi = 3.13;
+        // console.log(pi) //3.14
+        // pi = 1;
+        //此时就会报错
+
+        // 顶层对象
+        // window.a = 1;
+        // console.log(a); //a = 1
+        // a = 2
+        // console.log(window.a)//2
+        //ES6为了改变这一点，一方面规定，var命令和function命令声明的全局变量，依旧是顶层对象的属性，但是let命令和const命令的全局变量，不属于顶层对象属性。也就是说从ES6开始，全局变量将逐步与顶层对象的属性脱钩。
+        // var a = 1;
+        // console.log(window.a) //1
+        // let b = 2;
+        // console.log(window.b) //undefine
+        // ...变量名
+        // let [a, ...b] = [1, 2, 3, 4, 5];
+        // console.log(a);//1
+        // console.log(b);//[2,3,4,5]
+
+        // # 对象的解构赋值
+        // var { foo, bar } = { foo: "aaa", bar: "bbb" }
+        // console.log(foo)//"aaa"
+        // console.log(bar)//"bbb"
+        // for...of循环遍历
+        for (let codePoint of 'foo') {
+            console.log(codePoint)
+            //f
+            //o
+            //o
         }
-        timeout(2000, "hahaha").then((value) => {
-            console.log(value);
-            return timeout(2000, "xixi");
-        }).then((value) => {
-            console.log(value);
-            return timeout(2000, "mmmm");
-        }).then((value) => {
-            console.log(value);
-        })
+        let a = [1, 2, 3, 4, 5, 6];
+        for (let i of a) {
+            console.log(i);
+        }
+
+
     </script>
 </head>
 
 <body>
-    <h1>哈哈哈,我可以了</h1>
+
 </body>
 
 </html>
