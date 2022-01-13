@@ -102,7 +102,7 @@ function 函数名(参数列表) {
 ```
 # .then
 then方法是定义在原型对象Promise。它的作用是为Promise实例添加状态改变的回调函数。then方法的第一个参数是resolve状态的回调函数，第二个参数(可选)是rejected的回调函数.
-```powerchel;
+```powershell
 promise.then(resolve) 返回成功的结果
 promise.the(null,rejected) 返回失败的结果
 ```
@@ -444,7 +444,7 @@ var obj = {a: 1};
 Object.assign(obj) === obj // true
 ```
 #  注意点 深拷贝
-Object.assign方法实行的是浅拷贝，而不是深拷贝。也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用。
+Object.assign不具备 深度拷贝的。也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用。
 ```powershell
 var obj1 = {a: {b: 1}};
 var obj2 = Object.assign({}, obj1);
