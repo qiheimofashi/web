@@ -191,7 +191,7 @@ ES6为了改变这一点，一方面规定，var命令和function命令声明的
 ```powershell
 var a = 1;
 window.a//1
-let b =`;
+let b =1;
 window.b//undefine
 ```
 # ES6 变量的结构赋值
@@ -481,3 +481,72 @@ Reflect.ownKeys返回一个数组，包含对象自身的所有属性，不管�
 首先遍历所有属性名为数值的属性，按照数字排序。
 其次遍历所有属性名为字符串的属性，按照生成时间排序。
 最后遍历所有属性名为Symbol值的属性，按照生成时间排序。
+
+
+
+
+
+
+
+
+# 八种数据类型
+Number 数字型
+String 字符串
+Boolean 布尔
+undefined 未定义
+object 对象
+Null 空
+Symbol 这种类型的对象永不相等，创建的时候传入相同的值，可以解决属性名冲突的问题，做为标记。
+biglnt 它的目的是比Number类型支持的范围更大的整数数值 使用biglnt，整数溢出将不在是问题
+
+# Symbol 数据类型
+ symbol即看做是一个独一无二的数据 可以解决属性名冲突的问题 。
+ ```powershell
+let a = Symbol();
+let b = Symbol();
+a === b //false
+ ```
+ # set 
+ ES6新的数据结构set，类似于数组，没有重复值,本身是一个构造函数
+ ```powershell
+let a = Set([1,1,1,2,2,]);
+console.log(a); //[1,2]
+ ```
+ 有.size()返回set成员总数
+ ```powershell
+a.size //2
+ ```
+ .add()添加成员
+ a.add(3).add(4).add(5);
+ .delete() 删除某个值 
+ console.log(typeof a.delete(3)); //是一个布尔型
+ .has() 查询set是否有 该成员返回一个布尔型
+ console.log(a.has(4));
+# Proxy和Reflect
+Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”（meta programming），即对编程语言进行编程。
+Reflect对象与Proxy对象一样，也是ES6为了操作对象而提供的新API。Reflect对象的设计目的有这样几个。
+# ES6 异步操作和async函数
+异步编程对JavaScript语言太重要。Javascript语言的执行环境是“单线程”的，如果没有异步编程，根本没法用，非卡死不可。
+**异步就是一个任务分成两断，选执行第一段，然后在执行其他任务，等其他任务执行完成在继续执行第二段**
+回调函数的第一个参数必须是错误对象err
+Generator函数的概念 生成器
+generator函数返回一个遍历对象
+执行下一次需要用.next()方法
+会返回一个done布尔型属性表示有没有遍历完
+```powershell
+ function* gen(x) {
+     var y = yield x + 2;
+     return y;
+ }
+ var g = gen(1);
+ console.log(g.next());
+ console.log(g.next(2));
+```
+# async函数的实现
+async 函数的实现，就是将 Generator 函数和自动执行器，包装在一个函数里。
+# async 函数的用法
+async函数返回一个Promise对象，可以使用then方法添加回调函数。当函数执行的时候，一旦遇到await就会先返回，等到触发的异步操作完成，再接着执行函数体内后面的语句。
+
+```powershell
+
+```
