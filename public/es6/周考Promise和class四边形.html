@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const timeout = (val, ...ans) => {
+            return new Promise((resolve, rejected) => {
+                setTimeout(function () {
+                    resolve(...ans);
+                }, val)
+            })
+        }
+        // timeout(200, "done").then(
+        //     (value) => {
+        //         console.log(value)
+        //         return timeout(500, "done");
+        //     }
+        // ).then(value => console.log(value));
+        // async function i() {
+        //     console.log(await timeout(200, "done"))
+        //     console.log(await timeout(500, "done"))
+        // }
+        // i();
+        (async () => {
+            console.log(await timeout(200, "done"))
+            console.log(await timeout(500, "done"));
+        })();
+
+        class 形状 {
+            constructor(n) {
+                this.n = n;
+
+            }
+            toString() {
+                return `我是${this.n}边形!`;
+            }
+        }
+        class 矩形 extends 形状 {
+            constructor(l, w) {
+                super(4);
+                this.l = l;
+                this.w = w;
+            }
+            area() {
+                return this.l * this.w;
+            }
+        }
+        class 正方形 extends 矩形 {
+            constructor(w) {
+                super(w, w);
+                // this.w = w;
+            }
+        }
+        let shape = new 正方形(4);
+        console.log(shape.toString(), shape.area());
+
+
+
+    </script>
+    <h1>111</h1>
+</body>
+
+</html>

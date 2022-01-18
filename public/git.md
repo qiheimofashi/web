@@ -251,6 +251,13 @@ for (let i of text) {
 }
 // "𠮷"
 ```
+# 数值的扩展
+ES6 提供了新的两个方法
+1. Number.isFinite() //用来检测数值是否有限 返回布尔值 true有限
+2. Number.isNaN() //检测值是否为NAN
+传统的会把字符串转换成数值
+3. Number.isInteger() //用来判断一个数值是否为整数返回布尔值
+4. Number.EpSILON //极小的常量
 # 函数的扩展
 在ES6之前，不能直接为函数的参数指定默认值，只能采用变通的方法。
 ```powershell
@@ -497,7 +504,7 @@ undefined 未定义
 object 对象
 Null 空
 Symbol 这种类型的对象永不相等，创建的时候传入相同的值，可以解决属性名冲突的问题，做为标记。
-biglnt 它的目的是比Number类型支持的范围更大的整数数值 使用biglnt，整数溢出将不在是问题
+bigInt 它的目的是比Number类型支持的范围更大的整数数值 使用bigInt，整数溢出将不在是问题
 
 # Symbol 数据类型
  symbol即看做是一个独一无二的数据 可以解决属性名冲突的问题 。
@@ -519,17 +526,17 @@ a.size //2
  .add()添加成员
  a.add(3).add(4).add(5);
  .delete() 删除某个值 
- console.log(typeof a.delete(3)); //是一个布尔型
+ console.log(typeOf a.delete(3)); //是一个布尔型
  .has() 查询set是否有 该成员返回一个布尔型
  console.log(a.has(4));
 # Proxy和Reflect
 Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”（meta programming），即对编程语言进行编程。
 Reflect对象与Proxy对象一样，也是ES6为了操作对象而提供的新API。Reflect对象的设计目的有这样几个。
 # ES6 异步操作和async函数
-异步编程对JavaScript语言太重要。Javascript语言的执行环境是“单线程”的，如果没有异步编程，根本没法用，非卡死不可。
+异步编程对JavaScript语言太重要。Javascript语言的执行环境是“单线程”的。
 **异步就是一个任务分成两断，选执行第一段，然后在执行其他任务，等其他任务执行完成在继续执行第二段**
 回调函数的第一个参数必须是错误对象err
-Generator函数的概念 生成器
+# Generator函数的概念 生成器
 generator函数返回一个遍历对象
 执行下一次需要用.next()方法
 会返回一个done布尔型属性表示有没有遍历完
@@ -554,10 +561,28 @@ function timeout(ms) {
   });
 }
 
-async function asyncPrint(value, ms) {
+·async function asyncPrint(value, ms) {
   await timeout(ms);
   console.log(value)
 }
 
 asyncPrint('hello world', 50);
 ```
+
+# ES6 class
+新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已
+class语法
+```powershell
+class Point {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            toString() {
+                return (this.x + this.y);
+            }
+        }
+        let a = new Point(4, 4);
+        console.log(a.toString());
+```
+# Module
