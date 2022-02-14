@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // dada = function (type) { this.type = type }
+        // dada.prototype.study = function () { console.log('魔王哪吒'); }
+        // let da1 = new dada('程序员')
+        // let da2 = new dada('It')
+        // da1.constructor.prototype.study = function () { console.log('dadaqianduan'); }
+        // da1.study()
+        class dada {
+            constructor(type) {
+                this.type = type;
+            }
+            toString() {
+                console.log(this.type);
+                // return this.type;
+            }
+        }
+        let da1 = new dada("sadasda");
+        da1.toString();
+    </script>
+
+</body>
+
+</html>
