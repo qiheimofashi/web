@@ -627,3 +627,36 @@ app.get('/abc', (req, res) => {
 
 中间件 洋葱模型
 一片一个功能
+
+nodejs 建立在操作系统之上的运行时环境 
+
+数据库 分为两种 1、关系型数据库 2、非关系型数据库
+mysql 查询语句
+show databases;查询数据库
+DDL数据定义语言
+
+create 创建对象
+有字段描述、数据类型、字段修饰
+
+create table student (
+  id int auto_increment primary key,
+  num varchar(14) not null,
+  name varchar(20) not null,
+  sex int,
+  age int default 18
+);
+
+create 对象类型 对象名 [对象类型描述]可以没有可以有(
+  id 数据类型 字段描述 字段修饰;
+)
+
+drop删除对象
+drop 对象类型 对象名;
+
+alter修改对象
+alter 对象类型 对象名
+修改数据类型大数据修改小数据有可能会失败;
+    原本
+例子 alter 对象类型 对象 modify 数据名 varchar(30);
+
+
