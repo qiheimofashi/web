@@ -649,6 +649,8 @@ create table student (
 create 对象类型 对象名 [对象类型描述]可以没有可以有(
   id 数据类型 字段描述 字段修饰;
 )
+创建唯一复合索引
+create unique index idx_score_year_subject on score (student_id, year);
 
 drop删除对象
 drop 对象类型 对象名;
@@ -659,4 +661,83 @@ alter 对象类型 对象名
     原本
 例子 alter 对象类型 对象 modify 数据名 varchar(30);
 
+DQL数据查询语言
 
+select 查询语句
+查询语句：select 字段1, 字段2, ... | * from 表名 [子句];
+
+条件子句 where 
+
+比较运算符: = > < >= <= !=;
+select * from 表单名 where 字段名 = 数值;
+
+逻辑运算符：and / or / not
+and 并且
+select * from student where name like '老%' and age>5 and sex=1;
+查询表(student)里的字段(name)值为(老%)的人并且年龄大于5岁性别为男;
+
+between and 和
+select * from 表名 where 字段名 between 数值 and 数值;
+
+or 或
+select * from 表名 where age>18 or age<25;
+意思就是查询age大于18或者age小于25之间的数;
+
+not 不能
+select * from 表名 where not name='赖声燕';
+查询name字段值不等于'赖声燕'的; 
+
+in() 包含
+select * from student where name in ('张三','赖声燕');
+查询 这个表(student)里面的字段(name)里的张三和赖声燕;
+
+like 模糊匹配% _ __
+select * from student where name like '赖_';_表示一个字符
+select * from student where name like '赖%';%表示一串字符
+查询 这个表(student)里面的字段(name)里的赖(一个字符)和(一串字符);
+
+is [null | not null] 
+select * from student where age is not null;
+查询 这个表(student)里面的字段(age)不为空,null则相反;
+空字符串 != null;
+
+联合子句 union [all | distinct] 
+union 默认的情况下会去除重复的; distinct默认值
+select * from student where age>5 and age<18 union select*from student where name = '赖声燕';
+意思就是查询年龄大于5小于18和一个名为 赖声燕;
+
+排序语句 order by 字段1 [asc | desc][,字段2[asc | desc],...] asc:降序 desc升序
+select * from student order by age desc;
+表里的年龄数据升序排序
+
+limit 子句 limit [offset,][count] offset从0开始
+select*from student where num limit 4;
+查询num字段的四条数据
+select*from student where num limit 4,4;
+从num字段的第五条数据开始查询四条数据;
+
+分组聚合子句 group by 字段1, 字段2
+count 计数 select count(*) from student; 
+max 最大  select max(age) from student;
+min 最小  select min(age) from student;
+avg 平均 select avf(age) from student;
+sum 和  select sum(age) from student;
+
+链接子句
+select * from student a left join score b on a.id = b.student_id;
+left左表 inner并集 right右表;
+子查询:在select语句中嵌入select语句。被嵌入的语句就是子查询语句;
+
+insert 插入语句
+insert into 表名 (字段1,字段2,....) values (值1,值2,....);
+insert into 表名 (字段1,字段2,....) select 字段1,字段2 from 表名[子句];
+insert into score (student_id,year,Chinese,mathematics,English,computer) select student_id+1,year,round(40+rand()*60),round(40+rand ()*60),round(40+rand()*60),round(40+rand()*60) from score;
+插入两次 STident_id;
+
+update 更新语句
+update student set name = '老赖' where num = 1;
+更新 num 为的name为老赖;
+
+delete删除语句
+delete from student num = 1;
+删除num为1的数据
