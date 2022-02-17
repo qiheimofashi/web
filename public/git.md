@@ -747,3 +747,8 @@ update student set name = '老赖' where num = 1;
 delete删除语句
 delete from student num = 1;
 删除num为1的数据
+
+三大范斯
+确保每列保持原子性
+确保表中每列和主键相关
+确保每列和主键列直接相关，而不是间接相关

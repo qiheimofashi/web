@@ -1,0 +1,11 @@
+### 用户注册
+
+POST http://localhost:3333/register
+content-type: application/json
+
+{
+"username": "wuhusssang1",
+"password":"123456",
+"confirmPassword":"123456",
+"nickname": "五皇"
+}
