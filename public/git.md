@@ -631,6 +631,12 @@ app.get('/abc', (req, res) => {
 nodejs 建立在操作系统之上的运行时环境 
 
 数据库 分为两种 1、关系型数据库 2、非关系型数据库
+
+
+sudo service mysql stop
+sudo usermod -d /var/lib/mysql/ mysql
+sudo service mysql start
+
 mysql 查询语句
 show databases;查询数据库
 DDL数据定义语言
