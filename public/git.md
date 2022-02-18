@@ -745,7 +745,7 @@ update student set name = '老赖' where num = 1;
 更新 num 为的name为老赖;
 
 delete删除语句
-delete from student num = 1;
+delete from student where num = 1;
 删除num为1的数据
 
 三大范斯

@@ -4,8 +4,25 @@ POST http://localhost:3333/register
 content-type: application/json
 
 {
-"username": "wuhusssang1",
+"username": "wuhusssang",
 "password":"123456",
 "confirmPassword":"123456",
 "nickname": "五皇"
 }
+
+###用户登陆
+POST http://localhost:3333/login
+content-type:application/json
+
+{
+"username": "wuhusssang",
+"password":"123456"
+}
+
+###用户注销
+GET http://localhost:3333/logout
+
+
+###获取用户信息
+GET http://localhost:3333/user/info
+content-type:application/json

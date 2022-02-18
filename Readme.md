@@ -57,7 +57,8 @@
     result:{
         success:Boolean,
         message:String
-    }
+    },
+    user:User
 }
 ```
 
