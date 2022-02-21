@@ -92,7 +92,7 @@
 5. 添加新代办
 ```javascript
 {
-    path:'/tudos',
+    path:'/todos',
     method:'POST',
     data:{
         title:String,
@@ -105,7 +105,7 @@
         todo:Todo
     }
 }
-
+优先级 normal | important | crucial
 ```
 
 6. 修改代办信息

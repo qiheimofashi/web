@@ -4,7 +4,7 @@ POST http://localhost:3333/register
 content-type: application/json
 
 {
-"username": "wuhusssang",
+"username": "wuhusssang4",
 "password":"123456",
 "confirmPassword":"123456",
 "nickname": "五皇"
@@ -15,7 +15,7 @@ POST http://localhost:3333/login
 content-type:application/json
 
 {
-"username": "wuhusssang",
+"username": "wuhusssang4",
 "password":"123456"
 }
 
@@ -25,4 +25,14 @@ GET http://localhost:3333/logout
 
 ###获取用户信息
 GET http://localhost:3333/user/info
+
+
+###新建代办
+POST http://localhost:3333/todos
 content-type:application/json
+
+{
+"title": "Learn TS",
+"description": "TS现在太流行了,不学影响的装_",
+"priority":"important"
+}

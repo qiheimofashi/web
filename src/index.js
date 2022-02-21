@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //session 中间件
 const session = require("express-session");
+const { query } = require("express");
 app.use(session({
     secret: "switch a good secret key",
     resave: true,
@@ -61,32 +62,60 @@ app.post("/register", async (req, res) => {
         success: true,
         user
     });
-}).post('/login', async (req, res) => {
-    const { username, password } = req.body;
-    //根据用户名查询信息
-    const user = await db.findOne("select * from user where username = ?", [username]);
-    //判断密码是否输入正确
-    if (user && checkPassword(password, user.password)) {
-        //在会话 (session) 中保存用户信息
-        req.session.userId = user.id;
-        //响应客户端
-        res.send({
-            success: true,
-            user
-        })
-    } else res.send({ success: false, message: "用户密码或错误" })
-}).get("/logout",(req,res)=>{
-  req.session.destroy();
-  res.send({
-      success:true,
-      message:"用户注销成功"
-  })
-})
-    .get('/user/info', async (req, res) => {
-        res.send({ userId: req.session.userId });
+})/*
+    用户登陆
+*/
+    .post('/login', async (req, res) => {
+        const { username, password } = req.body;
+        //根据用户名查询信息
+        const user = await db.findOne("select * from user where username = ?", [username]);
+        //判断密码是否输入正确
+        if (user && checkPassword(password, user.password)) {
+            //在会话 (session) 中保存用户信息
+            req.session.userId = user.id;
+            //响应客户端
+            res.send({
+                success: true,
+                user
+            })
+        } else res.send({ success: false, message: "用户密码或错误" })
     });
-
-
+//创建路由对象,使得用户登陆状态检查中间件只作用于部分路由
+const router = express.Router();
+//创建用户登陆状态检查的中间件
+router.use(async (req, res, next) => {
+    if (!req.session.userId) {
+        return res.status(401).send({ success: false, message: '用户尚未登陆' });
+    }
+    req.query = await db.findOne("select * from user where id = ?", [req.session.userId])
+    next();
+});
+/*
+    用户注销
+*/
+router.get("/logout", (req, res) => {
+    //清楚session信息
+    req.session.destroy();
+    res.send({
+        success: true,
+        message: "用户注销成功"
+    })
+}).get('/user/info', (req, res) => {
+    res.send({
+        success: true,
+        userId: req.query
+    });
+}).post('/todos', async (req, res) => {
+    const { title, description, priority } = req.body;
+    const [results] = await db.query('insert into todo (title,description,priority,user_id) values (?,?,?,?)', [title, description, priority, req.session.userId]);
+    const todo = await db.findOne('select * from todo where id=?', results.insertId);
+    res.send({
+        success: true,
+        todo
+    })
+})
+//将路由作为中间件挂接 在/ 更路由上
+app.use('/', router);
 
 //全局错误处理
 app.use((err, req, res, next) => {
