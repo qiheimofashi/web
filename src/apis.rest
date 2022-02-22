@@ -4,10 +4,10 @@ POST http://localhost:3333/register
 content-type: application/json
 
 {
-"username": "wuhusssang4",
+"username": "wu4",
 "password":"123456",
 "confirmPassword":"123456",
-"nickname": "五皇"
+"nickname": "吾皇"
 }
 
 ###用户登陆
@@ -15,7 +15,7 @@ POST http://localhost:3333/login
 content-type:application/json
 
 {
-"username": "wuhusssang4",
+"username": "wu4",
 "password":"123456"
 }
 
@@ -32,7 +32,36 @@ POST http://localhost:3333/todos
 content-type:application/json
 
 {
-"title": "Learn TS",
-"description": "TS现在太流行了,不学影响的装_",
+"title": "laisss",
+"description": "ok",
 "priority":"important"
 }
+
+
+### 修改代办
+PUT http://localhost:3333/todos/10 HTTP/1.1
+content-type:application/json
+
+{
+"title": "赖声燕的大屌早已饥渴难耐了",
+"description": "我修改了这个代办",
+"priority":"normal"
+}
+
+###删除代办
+DELETE http://localhost:3333/todos/4 HTTP/1.1
+content-type:application/json
+
+
+###完成代办
+PUT http://localhost:3333/todos/finish/10 HTTP/1.1
+content-type:application/json
+
+
+###获取用户代办列表
+GET http://localhost:3333/todos?days=1&isFinished=true&offset=1&limit=1 HTTP/1.1
+content-type:application/json
+
+
+###获取代办完成情况
+GET http://localhost:3333/todos/stat HTTP/1.1

@@ -6,10 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function login() {
+            const response = await axios.post("/login", {
+                username: document.getElementById("username").value,
+                password: document.getElementById("password").value,
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    </script>
 </head>
 
 <body>
-
+    <h1>
+        123123123
+    </h1>
+    <div>
+        <form>
+            <input type="text" id="username">
+            <input type="password" id="password">
+            <button type="button" onclick="login()">登陆</button>
+        </form>
+    </div>
 </body>
 
 </html>

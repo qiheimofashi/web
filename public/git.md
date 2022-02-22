@@ -752,3 +752,22 @@ delete from student where num = 1;
 确保每列保持原子性
 确保表中每列和主键相关
 确保每列和主键列直接相关，而不是间接相关
+
+异步错误获取补丁
+express-async-errors
+
+加密模块函数
+const { makePassword, checkPassword } = require("./utils");
+
+使用中间键 解析body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+session中间件
+express-session
+什么是cookie
+cookie是一种客户端的状态管理技术
+当浏览器向服务器发送请求时，服务器会将少量的数据以set-cookie消息头的方式发送给浏览器
+浏览器会将这些数据保存下来。当浏览器再次访问服务器时，会将这些数据以cookie消息头的方式发送给服务器。
+session是一种服务器端的状态管理技术
+就是浏览器访问服务器的时候服务器会给浏览器一个id用来记住该用户的登陆状态

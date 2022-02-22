@@ -129,7 +129,7 @@
 7. 删除代办
 ```javascript
 {
-    path:'/todos/:tid,
+    path:'/todos/:tid',
     method:'DELETE',
     result:{
         success:Boolean,
@@ -140,7 +140,7 @@
 8. 完成代办
 ```javascript
 {
-    path:'/todos/:tid',
+    path:'/todos/finish/:tid',
     method:'PUT',
     result:{
         success:Boolean,
